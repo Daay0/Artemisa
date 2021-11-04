@@ -2,369 +2,295 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-    <!--=============== REMIXICONS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <!--=============== REMIXICONS ===============-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
-    <!--=============== ANIMATE MODAL CSS ===============-->
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/normalize.min.css">
+  <!--=============== ANIMATE MODAL CSS ===============-->
+  <link rel="stylesheet" href="css/animate.min.css">
+  <link rel="stylesheet" href="css/normalize.min.css">
 
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="css/style.css">
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="css/style.css">
 
-    <title>Proyecto Madroños</title>
+  <title>Proyecto Madroños</title>
 </head>
 
-<body class="light-mode" id="cambio">
+<body class="light-mode" id="cambio" onload="getFilter('2')">
 
-    <header class="header2 scroll-header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">ARTEMISA</a>
+  <header class="header2 scroll-header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">ARTEMISA</a>
 
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="index.html" class="nav__link">Inicio</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="galeria.html" class="nav__link active-link">Galeria</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="formulario.html" class="nav__link">Formulario</a>
-                    </li>
-                </ul>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">Inicio</a>
+          </li>
+          <li class="nav__item">
+            <a href="galeria.html?tipo=Arbutus" class="nav__link active-link">Arbutus</a>
+          </li>
+          <li class="nav__item">
+            <a href="galeria.html?tipo=Comarostaphylis" class="nav__link active-link">Comarostaphylis</a>
+          </li>
+          <li class="nav__item">
+            <a href="formulario.html" class="nav__link">Formulario</a>
+          </li>
+        </ul>
 
-                <div class="nav__dark">
-                    <!-- Theme change button  -->
-                    <span class="change-theme-name">Dark mode</span>
-                    <i class="ri-moon-line change-theme" id="theme-button"></i>
-                </div>
-
-                <i class="ri-close-line nav__close" id="nav-close"></i>
-            </div>
-
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="ri-function-line"></i>
-            </div>
-        </nav>
-    </header>
-
-
-    <div class="container section row">
-        <div class="col-12">
-            <h1 class="">Galeria Madroños</h1>
-            <button class="button2" id="demo01" href="#animatedModal"><a>Mostrar Filtro</a><i
-                    class="ri-equalizer-line filter"></i></button>
+        <div class="nav__dark">
+          <!-- Theme change button  -->
+          <span class="change-theme-name">Dark mode</span>
+          <i class="ri-moon-line change-theme" id="theme-button"></i>
         </div>
+
+        <i class="ri-close-line nav__close" id="nav-close"></i>
+      </div>
+
+      <div class="nav__toggle" id="nav-toggle">
+        <i class="ri-function-line"></i>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="container section row">
+    <div class="col-12">
+      <h1 class="">Galeria Madroños</h1>
+      <button class="button2" id="demo01" href="#animatedModal"><a>Mostrar Filtro</a><i class="ri-equalizer-line filter"></i></button>
+    </div>
+  </div>
+
+  <!--DEMO01-->
+  <div id="animatedModal">
+    <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
+    <div id="btn-close-modal" class="close-animatedModal">
+      <i class="ri-close-line icon-close"></i>
     </div>
 
-    <!--DEMO01-->
-    <div id="animatedModal">
-        <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
-        <div id="btn-close-modal" class="close-animatedModal">
-            <i class="ri-close-line icon-close"></i>
+    <div class="modal-content">
+      <div class="container-fluid " >
+        <h1 class="title__main">FILTRO</h1>
+        <div class="fill_Filter" id="fill_Filter">
+
         </div>
-
-        <div class="modal-content">
-            <div class="container-fluid ">
-                <h1 class="title__main">FILTRO</h1>
-                
-                <form class="form-container">
-                    <h3 class="subtitle__main">Categoria #1</h3>
-                    <label class="checkbox">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus dolor dignissimos consequatur omnis sunt at fuga ullam explicabo, quas et asperiores odio autem. Ea, culpa? Repudiandae accusamus qui sed sapiente!
-                        <input type="checkbox" checked="checked">
-                        <span class="check"></span>
-                    </label>
-                    <label class="checkbox">Two
-                        <input type="checkbox">
-                        <span class="check"></span>
-                    </label>
-                    <label class="checkbox">Three
-                        <input type="checkbox">
-                        <span class="check"></span>
-                    </label>
-                    <label class="checkbox">Four
-                        <input type="checkbox">
-                        <span class="check"></span>
-                    </label>
-
-                </form>
-
-                <form class="form-container">
-                    <h3 class="subtitle__main">Categoria #2</h3>
-                    <label class="checkbox">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus dolor dignissimos consequatur omnis sunt at fuga ullam explicabo, quas et asperiores odio autem. Ea, culpa? Repudiandae accusamus qui sed sapiente!
-                        <input type="checkbox" checked="checked">
-                        <span class="check"></span>
-                    </label>
-                    <label class="checkbox">Two
-                        <input type="checkbox">
-                        <span class="check"></span>
-                    </label>
-                    <label class="checkbox">Three
-                        <input type="checkbox">
-                        <span class="check"></span>
-                    </label>
-                    <label class="checkbox">Four
-                        <input type="checkbox">
-                        <span class="check"></span>
-                    </label>
-
-                </form>
-
-                <form class="form-container">
-                    <h3 class="subtitle__main">Categoria #3</h3>
-                    <label class="checkbox">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus dolor dignissimos consequatur omnis sunt at fuga ullam explicabo, quas et asperiores odio autem. Ea, culpa? Repudiandae accusamus qui sed sapiente!
-                        <input type="checkbox" checked="checked">
-                        <span class="check"></span>
-                    </label>
-                    <label class="checkbox">Two
-                        <input type="checkbox">
-                        <span class="check"></span>
-                    </label>
-                    <label class="checkbox">Three
-                        <input type="checkbox">
-                        <span class="check"></span>
-                    </label>
-                    <label class="checkbox">Four
-                        <input type="checkbox">
-                        <span class="check"></span>
-                    </label>
-
-                </form>
-
-                <form class="form-container">
-                    <h3 class="subtitle__main">Categoria #4</h3>
-                    <label class="checkbox">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus dolor dignissimos consequatur omnis sunt at fuga ullam explicabo, quas et asperiores odio autem. Ea, culpa? Repudiandae accusamus qui sed sapiente!
-                        <input type="checkbox" checked="checked">
-                        <span class="check"></span>
-                    </label>
-                    <label class="checkbox">Two
-                        <input type="checkbox">
-                        <span class="check"></span>
-                    </label>
-                    <label class="checkbox">Three
-                        <input type="checkbox">
-                        <span class="check"></span>
-                    </label>
-                    <label class="checkbox">Four
-                        <input type="checkbox">
-                        <span class="check"></span>
-                    </label>
-
-                </form>
-
-                <div class="filter__footer">
-                    <button class="btn__filter">cancelar</button>
-                    <button class="btn__filter">aplicar</button>
-                </div>
-
-            </div>
+        <div class="filter__footer">
+          <button class="btn__filter">Limpiar</button>
+          <button class="btn__filter">Aplicar</button>
         </div>
+      </div>
     </div>
+  </div>
 
 
-    <div class="container ">
-        <h2 class="section__title">Resultados encontrados</h2>
-        <ul class="cards">
-            <li>
-              <a href="#" class="card">
-                <img src="img/A_bicolor1.jpg" class="card__image" alt="" />
-                <div class="card__overlay">
-                  <div class="card__header">
-                                         
-                    <img class="card__thumb" src="img/A_bicolor1.jpg" alt="" />
-                    <div class="card__header-text">
-                      <h3 class="card__title">Jessica Parker</h3>            
-                      <span class="card__status">1 hour ago</span>
-                    </div>
-                  </div>
-                  <div id="scroll">
-                  <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  </div>
-                </div>
-              </a>      
+  <div class="container ">
+    <h2 class="section__title">Resultados encontrados</h2>
+    <ul class="cards" id="cards">
+      <li class="fill">
+        <a href="#" class="card fill">
+          <img src="img/A_bicolor1.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+
+              <img class="card__thumb" src="img/A_bicolor1.jpg" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">Jessica Parker</h3>
+                <span class="card__status">1 hour ago</span>
+              </div>
+            </div>
+            <div id="scroll">
+              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+              <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="card">
+          <img src="img/A_bicolor1.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                <path />
+              </svg>
+              <img class="card__thumb" src="img/A_bicolor1.jpg" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">Jessica Parker</h3>
+                <span class="card__status">1 hour ago</span>
+              </div>
+            </div>
+            <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="card">
+          <img src="img/A_bicolor1.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                <path />
+              </svg>
+              <img class="card__thumb" src="img/A_bicolor1.jpg" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">Jessica Parker</h3>
+                <span class="card__status">1 hour ago</span>
+              </div>
+            </div>
+            <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="card">
+          <img src="img/A_bicolor1.jpg" class="card__image" alt="" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                <path />
+              </svg>
+              <img class="card__thumb" src="img/A_bicolor1.jpg" alt="" />
+              <div class="card__header-text">
+                <h3 class="card__title">Jessica Parker</h3>
+                <span class="card__status">1 hour ago</span>
+              </div>
+            </div>
+            <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+
+
+
+
+
+  <!--==================== FOOTER ====================-->
+  <footer class="footer section">
+    <div class="footer__container container grid">
+      <div class="footer__content grid">
+        <div class="footer__data">
+          <h3 class="footer__title">Artemisa</h3>
+          <p class="footer__description">Busca y encuentra los <br> distintos tipos
+            de madroños <br> en Mexico.
+          </p>
+          <div>
+            <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+              <i class="ri-facebook-box-fill"></i>
+            </a>
+            <a href="https://twitter.com/" target="_blank" class="footer__social">
+              <i class="ri-twitter-fill"></i>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+              <i class="ri-instagram-fill"></i>
+            </a>
+            <a href="https://www.youtube.com/" target="_blank" class="footer__social">
+              <i class="ri-youtube-fill"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__data">
+          <h3 class="footer__subtitle">About</h3>
+          <ul>
+            <li class="footer__item">
+              <a href="" class="footer__link">About Us</a>
             </li>
-            <li>
-                <a href="#" class="card">
-                  <img src="img/A_bicolor1.jpg" class="card__image" alt="" />
-                  <div class="card__overlay">
-                    <div class="card__header">
-                      <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-                      <img class="card__thumb" src="img/A_bicolor1.jpg" alt="" />
-                      <div class="card__header-text">
-                        <h3 class="card__title">Jessica Parker</h3>            
-                        <span class="card__status">1 hour ago</span>
-                      </div>
-                    </div>
-                    <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  </div>
-                </a>      
-              </li>
-              <li>
-                <a href="#" class="card">
-                  <img src="img/A_bicolor1.jpg" class="card__image" alt="" />
-                  <div class="card__overlay">
-                    <div class="card__header">
-                      <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-                      <img class="card__thumb" src="img/A_bicolor1.jpg" alt="" />
-                      <div class="card__header-text">
-                        <h3 class="card__title">Jessica Parker</h3>            
-                        <span class="card__status">1 hour ago</span>
-                      </div>
-                    </div>
-                    <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  </div>
-                </a>      
-              </li>
-              <li>
-                <a href="#" class="card">
-                  <img src="img/A_bicolor1.jpg" class="card__image" alt="" />
-                  <div class="card__overlay">
-                    <div class="card__header">
-                      <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-                      <img class="card__thumb" src="img/A_bicolor1.jpg" alt="" />
-                      <div class="card__header-text">
-                        <h3 class="card__title">Jessica Parker</h3>            
-                        <span class="card__status">1 hour ago</span>
-                      </div>
-                    </div>
-                    <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                  </div>
-                </a>      
-              </li>    
+            <li class="footer__item">
+              <a href="" class="footer__link">Features</a>
+            </li>
+            <li class="footer__item">
+              <a href="" class="footer__link">New & Blog</a>
+            </li>
           </ul>
-    </div>
-    
-
-
-
-
-
-
-
-
-    <!--==================== FOOTER ====================-->
-    <footer class="footer section">
-        <div class="footer__container container grid">
-            <div class="footer__content grid">
-                <div class="footer__data">
-                    <h3 class="footer__title">Artemisa</h3>
-                    <p class="footer__description">Busca y encuentra los <br> distintos tipos
-                        de madroños <br> en Mexico.
-                    </p>
-                    <div>
-                        <a href="https://www.facebook.com/" target="_blank" class="footer__social">
-                            <i class="ri-facebook-box-fill"></i>
-                        </a>
-                        <a href="https://twitter.com/" target="_blank" class="footer__social">
-                            <i class="ri-twitter-fill"></i>
-                        </a>
-                        <a href="https://www.instagram.com/" target="_blank" class="footer__social">
-                            <i class="ri-instagram-fill"></i>
-                        </a>
-                        <a href="https://www.youtube.com/" target="_blank" class="footer__social">
-                            <i class="ri-youtube-fill"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer__data">
-                    <h3 class="footer__subtitle">About</h3>
-                    <ul>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">About Us</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Features</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">New & Blog</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer__data">
-                    <h3 class="footer__subtitle">Company</h3>
-                    <ul>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Team</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Plan y Pricing</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Become a member</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="footer__data">
-                    <h3 class="footer__subtitle">Support</h3>
-                    <ul>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">FAQs</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Support Center</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="" class="footer__link">Contact Us</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer__rights">
-                <p class="footer__copy">&#169; 2021 ARTEMISA. All rigths reserved.</p>
-                <div class="footer__terms">
-                    <a href="#" class="footer__terms-link">Terms & Agreements</a>
-                    <a href="#" class="footer__terms-link">Privacy Policy</a>
-                </div>
-            </div>
         </div>
-    </footer>
+
+        <div class="footer__data">
+          <h3 class="footer__subtitle">Company</h3>
+          <ul>
+            <li class="footer__item">
+              <a href="" class="footer__link">Team</a>
+            </li>
+            <li class="footer__item">
+              <a href="" class="footer__link">Plan y Pricing</a>
+            </li>
+            <li class="footer__item">
+              <a href="" class="footer__link">Become a member</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__data">
+          <h3 class="footer__subtitle">Support</h3>
+          <ul>
+            <li class="footer__item">
+              <a href="" class="footer__link">FAQs</a>
+            </li>
+            <li class="footer__item">
+              <a href="" class="footer__link">Support Center</a>
+            </li>
+            <li class="footer__item">
+              <a href="" class="footer__link">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__rights">
+        <p class="footer__copy">&#169; 2021 ARTEMISA. All rigths reserved.</p>
+        <div class="footer__terms">
+          <a href="#" class="footer__terms-link">Terms & Agreements</a>
+          <a href="#" class="footer__terms-link">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 
-    <!--==================== CARDS GALLERY ====================-->
+  <!--==================== CARDS GALLERY ====================-->
 
 
 
-    <!--========== SCROLL UP ==========-->
-    <a href="#" class="scrollup" id="scroll-up">
-        <i class="ri-arrow-up-line scrollup__icon"></i>
-    </a>
+  <!--========== SCROLL UP ==========-->
+  <a href="#" class="scrollup" id="scroll-up">
+    <i class="ri-arrow-up-line scrollup__icon"></i>
+  </a>
 
-    <!--=============== JQUERY ===============-->
-    <script src="js/jquery.min.js"></script>
+  <!--=============== JQUERY ===============-->
+  <script src="js/jquery.min.js"></script>
 
-    <!--=============== SCROLL REVEAL===============-->
-    <script src="js/scrollreveal.min.js"></script>
+  <!--=============== SCROLL REVEAL===============-->
+  <script src="js/scrollreveal.min.js"></script>
 
-    <!--=============== ANIMATE MODAL JS ===============-->
-    <script src="js/animatedModal.js"></script>
+  <!--=============== ANIMATE MODAL JS ===============-->
+  <script src="js/animatedModal.js"></script>
 
-    <!--=============== MAIN JS ===============-->
-    <script src="js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script>
-        //demo 01
-        $("#demo01").animatedModal();
-    </script>
+  <!--=============== MAIN JS ===============-->
+  <script src="js/main.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script>
+    //demo 01
+    $("#demo01").animatedModal();
+  </script>
 </body>
 
 </html>

@@ -1324,3 +1324,24 @@ input {
     background-position: top right;
   }
 }
+
+
+
+.fill {
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-image: url('path/to/image.jpg');
+}
+
+
+.dot {
+  text-align: center;
+  height: Auto;
+  width: 3rem;
+  border-radius: 30%;
+  display: inline-block;
+  padding: 1px;
+  border: 2px solid #285e44;
+  margin: 2px;
+}
