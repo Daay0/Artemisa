@@ -18,7 +18,7 @@
   <title>Proyecto Madroños</title>
 </head>
 
-<body class="light-mode" id="cambio" onload="getFilter('2')">
+<body class="light-mode" id="cambio" onload="getGalleryReady()">
 
   <header class="header2 scroll-header">
     <nav class="nav container">
@@ -30,10 +30,10 @@
             <a href="index.html" class="nav__link">Inicio</a>
           </li>
           <li class="nav__item">
-            <a href="galeria.html?tipo=Arbutus" class="nav__link active-link">Arbutus</a>
+            <a href="galeria.html?tipo=Arbutus" class="nav__link" id="nav_Arbutus">Arbutus</a>
           </li>
           <li class="nav__item">
-            <a href="galeria.html?tipo=Comarostaphylis" class="nav__link active-link">Comarostaphylis</a>
+            <a href="galeria.html?tipo=Comarostaphylis" class="nav__link" id="nav_Comarostaphylis">Comarostaphylis</a>
           </li>
           <li class="nav__item">
             <a href="formulario.html" class="nav__link">Formulario</a>
@@ -113,24 +113,6 @@
               <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
               <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
             </div>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="card">
-          <img src="img/A_bicolor1.jpg" class="card__image" alt="" />
-          <div class="card__overlay">
-            <div class="card__header">
-              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-              <img class="card__thumb" src="img/A_bicolor1.jpg" alt="" />
-              <div class="card__header-text">
-                <h3 class="card__title">Jessica Parker</h3>
-                <span class="card__status">1 hour ago</span>
-              </div>
-            </div>
-            <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
           </div>
         </a>
       </li>

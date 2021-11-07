@@ -1,4 +1,6 @@
-var data_All, data_Question;
+var data_All = '', data_Question = '', query_string = '';
+
+
 
 function getData(type) {
   data_All = null;
@@ -34,7 +36,7 @@ function showData(data) {
       '</div>' +
       '</div>' +
       '<div id="scroll">' +
-      '<p class="card__description" id="estado' + n + '_Fill">Estado</p>' +
+      '<p class="card__description" id="estado' + n + '_Fill"><b>Estado: </b></p>' +
       '</div>' +
       '</div>' +
       '</a>' +
@@ -48,19 +50,44 @@ function showData(data) {
 
 function filterData() {
 
+
+  //showData(filtered_Data);
 }
 
-function selectData() {
-  if (window.location.search == '') getData(null);
-  else {
+function selectFilters() {
 
+}
+
+function getGalleryReady() {
+  query_string = QueryStringToJSON();
+  type = query_string['tipo'];
+  filter = (type == 'Arbutus') ? 1 : 2;
+  getFilter(filter);
+  activeLink(type);
+  getData(type);
+  console.log(type);
+  console.log(query_string);
+  console.log(data_Question);
+  filterData();
+}
+
+function QueryStringToJSON() {
+  var pairs = location.search.slice(1).split('&');
+  var result = {};
+  pairs.forEach(function(pair) {
+    pair = pair.split('=');
+    result[pair[0]] = decodeURIComponent(pair[1] || '');
+  });
+
+  return JSON.parse(JSON.stringify(result));
+}
+
+function activeLink(type){
+  if(type == 'Arbutus'){
+    document.getElementById('nav_Arbutus').classList.add('active-link');
+  }else if(type == 'Comarostaphylis'){
+    document.getElementById('nav_Comarostaphylis').classList.add('active-link');
   }
-}
-
-function getQueryString() {
-  queryString = window.location.search;
-  params = new URLSearchParams(queryString);
-  console.log(params.toString());
 }
 
 function getFilter(type) {
@@ -80,5 +107,7 @@ function getFilter(type) {
         }
       }
     }
-  ))
+  ).catch(function error() {
+    alert('Fallo *getFilter()*');
+  }));
 }
