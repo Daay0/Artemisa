@@ -11,9 +11,6 @@
   <!--=============== REMIXICONS ===============-->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
-  <!--=============== SWIPER CSS ===============-->
-  <link rel="stylesheet" href="css/swiper-bundle.min.css">
-
   <!--=============== CSS ===============-->
   <link rel="stylesheet" href="css/style.css">
 
@@ -57,6 +54,14 @@
     </nav>
   </header>
 
+    <!--=============== Loader ===============-->
+    <div class="loader">
+      <div class="lds-ripple">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
 
   <div class="container section">
     <div class="col-12">
@@ -67,29 +72,17 @@
   <!--==================== FORMULARIO ====================-->
   <div class="container ">
     <div class="form__container">
-
-      <div class="card__form">
-        <div class="section__title">Aqui va una pregunta?</div>
-        <p class="form__description">uscar o filtrar informacion acerca de los
-          Arbutus o Comarostaphylis según cual deseé buscar, para esto oprima el boton a continuación.
-        </p>
-        <a href="#" class="button">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo aliquid
-          neque mollitia nesciunt dolor qui harum reprehenderit debitis molestias sunt, nobis a, quibusdam
-          consectetur dicta ducimus quae. Totam, error debitis. </a>
-        <a href="#" class="button">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo aliquid
-          neque mollitia nesciunt dolor qui harum reprehenderit debitis molestias sunt, nobis a, quibusdam
-          consectetur dicta ducimus quae. Totam, error debitis. </a>
-        <a href="#" class="button">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo aliquid
-          neque mollitia nesciunt dolor qui harum reprehenderit debitis molestias sunt, nobis a, quibusdam
-          consectetur dicta ducimus quae. Totam, error debitis. </a>
-        <a href="#" class="button">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo aliquid
-          neque mollitia nesciunt dolor qui harum reprehenderit debitis molestias sunt, nobis a, quibusdam
-          consectetur dicta ducimus quae. Totam, error debitis. </a>
-      </div>
+        <div class="card cls_Center">
+            <div class="section__title" id="lbl_Question">Tipo de Madroño</div>
+            <p class="form__description" id="lbl_Desc">Seleccione el tipo de madroño que desea buscar.
+            </p>
+            <div class="cls_Center" id="div_Option">
+              <a href="#" class="button" id="Arbutus" value="Arbutus" onclick="getData('Arbutus')">Arbutus</a>
+              <a href="#" class="button" id="Comarostaphylis" value="Comarostaphylis" onclick="getData('Comarostaphylis')">Comarostaphylis</a>
+            </div>
+        </div>
     </div>
-  </div>
-
-
+</div>
 
 
   <!--==================== FOOTER ====================-->
@@ -173,7 +166,6 @@
     </div>
   </footer>
 
-
   <!--========== SCROLL UP ==========-->
   <a href="#" class="scrollup" id="scroll-up">
     <i class="ri-arrow-up-line scrollup__icon"></i>
@@ -182,14 +174,14 @@
   <!--=============== SCROLL REVEAL===============-->
   <script src="js/scrollreveal.min.js"></script>
 
-  <!--=============== SWIPER JS ===============-->
-  <script src="js/swiper-bundle.min.js"></script>
-
   <!--=============== MAIN JS ===============-->
   <script src="js/main.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  <script src="js/form.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
   </script>
 </body>
 
