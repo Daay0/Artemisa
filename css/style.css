@@ -22,7 +22,7 @@
   --body-color: hsl(var(--hue-color), 100%, 99%);
   --white-color: #FFF;
   --title-green: #164730;
-  --second-color-theme: hsl(var(--hue-color), 1%, 90%);
+  --second-color-theme: hsl(var(--hue-color), 1%, 94%);
   --whiteB-color: hsl(var(--hue-color), 24%, 95%);
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 75%);
@@ -292,6 +292,7 @@ input {
   margin-right: var(--mb-1);
 }
 
+
 .grid {
   display: grid;
   gap: 1.5rem;
@@ -417,7 +418,7 @@ input {
 
 /*=============== HOME ===============*/
 .home__img {
-  background-image: url(../img/sky2.jpg);
+  background-image:  url(../img/sky2.jpg);
   position: absolute;
   top: 0;
   left: 0;
@@ -501,9 +502,9 @@ input {
   width: auto;
   padding: 8px;
   border-radius: 5px;
-  color: var(--text-color);
+  color: #000;
   font-size: 15px;
-  background: var(--second-color-theme);
+  background: #eee;
 }
 
 .btn__filter {
@@ -527,7 +528,7 @@ input {
 }
 
 #demo01,#demo01:link,#demo01:visited,#demo01:hover,#demo01:focus,#demo01:active{
-  color: var(--text-color);
+  color: #000;
   text-decoration: none;
 }
 
@@ -924,6 +925,115 @@ input {
   margin-bottom: var(--mb-1-5);
 
 }
+
+
+/*=============== ERROR 404 ===============*/
+#notfound {
+  position: relative;
+  height: 100vh;
+}
+
+#notfound .notfound {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.notfound {
+  max-width: 520px;
+  width: 100%;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.notfound .notfound-404 {
+  position: relative;
+  height: 200px;
+  margin: 0px auto 20px;
+  z-index: -1;
+}
+
+.notfound .notfound-404 h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 236px;
+  font-weight: 200;
+  margin: 0px;
+  color: var(--text-color);
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.notfound .notfound-404 h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--text-color);
+  background: var(--body-color);
+  padding: 10px 5px;
+  margin: auto;
+  display: inline-block;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+}
+
+.notfound a {
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 13px 23px;
+  background: var(--title-green);
+  font-size: 18px;
+  border-radius: 5px;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.notfound a:hover {
+  color: var(--white-color);
+  background: #164730;
+}
+
+@media only screen and (max-width: 767px) {
+  .notfound .notfound-404 h1 {
+    font-size: 148px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .notfound .notfound-404 {
+    height: 148px;
+    margin: 0px auto 10px;
+  }
+  .notfound .notfound-404 h1 {
+    font-size: 86px;
+  }
+  .notfound .notfound-404 h2 {
+    font-size: 16px;
+  }
+  .notfound a {
+    padding: 7px 15px;
+    font-size: 14px;
+  }
+}
+
+
+
+
+
 
 
 /*=============== FOOTER ===============*/
@@ -1324,8 +1434,6 @@ input {
   }
 }
 
-
-
 .fill {
   overflow: hidden;
   background-size: cover;
@@ -1338,10 +1446,10 @@ input {
   text-align: center;
   height: Auto;
   width: 3rem;
-  border-radius: 30%;
+  border-radius: 50%;
   display: inline-block;
   padding: 1px;
-  border: 2px solid #285e44;
+  border: 1px solid #285e44;
   margin: 2px;
 }
 

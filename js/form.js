@@ -21,7 +21,9 @@ function getData(type){
             }
             setQuestion(0);
         }
-        ));
+        ).catch(function error(){
+            location.href = 'error404.html'
+        }));
 }
 
 function json2array(json){
@@ -61,58 +63,3 @@ function sendData(){
       }
     location.href = url;
 }
-
-// function cambio(res){
-//     if (n_Pregunta != 0) {
-//         if (n_Pregunta < n_Tipo) {
-//             document.getElementById('pregunta' + n_Pregunta).classList.remove('d-none');
-//             document.getElementById('pregunta' + (n_Pregunta - 1)).classList.add('d-none');
-//         }
-//         if (n_Pregunta < n_Tipo) {
-//             resp.push(res);
-//         } else {
-//             resp.push(res);
-//             console.log(resp)
-//             send += "tipo=" + resp[0] + "&";
-//             //enviar datos a galeria
-//             for (var j = 0; j < data.length; j++) {
-//                 send += data[j].pregunta + "=" + resp[j + 1] + "&";
-
-//             }
-//             location.href = 'galeria.html' + send;
-//         }
-//     } else {
-//         resp.push(res);
-//         document.getElementById('pregunta' + (n_Pregunta)).classList.remove('d-none');
-//     }
-//     n_Pregunta++;
-// }
-
-// function pregunta(tipo) {
-//     res = (tipo == 1) ? 'Arbutus' : 'Comarostaphylis';
-//     url = 'http://localhost:3000/task/buscar/' + tipo;
-//     fetch(url).then(Response => Response.json()).then(
-//         function content(info){
-//             console.log(info)
-//             data = info;
-//             for (var i = 0; i < info.length; i++) {
-//                 document.getElementById('main').innerHTML += '<div class="card d-none" id="pregunta' + i + '">' +
-//                     '<div class="section__title">' + info[i].pregunta + '</div>' +
-//                     '<p class="form__description">' +
-//                     info[i].descripcion +
-//                     '</p>' +
-//                     '<div id="respuestas' + i + '"></div>' +
-//                     '</div>'
-//                 for (var j = 0; j < info[i].result.length; j++) {
-//                     document.getElementById('respuestas' + i).innerHTML += '<button href="#" class="button" onclick="cambio(this.value)" id="' + info[i].result[j] + '" value="' + info[i].result[j] + '">' +
-//                         info[i].result[j] +
-//                         '</button>';
-//                 }
-//             }
-//             n_Tipo = info.length;
-//             document.getElementById('pregunta').classList.add('d-none');
-//             cambio(res);
-//         }).catch(function Error() {
-//             alert('Fallo');
-//         })
-// }

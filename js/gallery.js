@@ -1,12 +1,19 @@
-var data_All = [], data_Question = '', query_string = '', type = '', filters = [], asd = [];
+var data_All = [],
+  data_Question = '',
+  query_string = '',
+  type = '',
+  filters = [],
+  asd = [],
+  tbFiltered = [],
+  counter = 0;
 
-function loader(){
+function loader() {
   const loader = document.querySelector(".loader");
   loader.className += " hidden"; // class "loader hidden"
 }
 
 //Obtener datos de los arbutus a buscar
-function getData(type) {
+function getData(type, need) {
   if (type == null) {
     url = 'http://localhost:3000/task/galeria/';
   } else {
@@ -15,27 +22,27 @@ function getData(type) {
   fetch(url).then(res => res.json().then(
     function data(data) {
       temp = json2array(data);
-            for(n = 0; n < temp.length; n++){
-                data_All.push(temp[n]);
-            }
-            showData(data_All);
-            filterData();
+      for (n = 0; n < temp.length; n++) {
+        data_All.push(temp[n]);
+      }
+      filterData();
     }
   ).catch(function error() {
-    alert('Fallo *getData()*');
+    location.href = 'error404.html'
   }));
 }
 
-function json2array(json){
+
+function json2array(json) {
   var result = [];
   var keys = Object.keys(json);
-  keys.forEach(function(key){
-      result.push(json[key]);
+  keys.forEach(function (key) {
+    result.push(json[key]);
   });
   return result;
 }
 
-//Muestra todos los datos seleccionados ingrsandolos en trajetas
+//Muestra todos los datos seleccionados ingresandolos en trajetas
 function showData(data) {
   document.getElementById('cards').innerHTML = '';
   for (n = 0; n < data.length; n++) {
@@ -53,6 +60,9 @@ function showData(data) {
       '</div>' +
       '<div id="scroll">' +
       '<p class="card__description" id="estado' + n + '_Fill"><b>Estado: </b></p>' +
+      '<p class="card__description" id="habito' + n + '_Fill"><b>Habito: </b></p>' +
+      '<p class="card__description" id="peciolos' + n + '_Fill"><b>Peciolos: </b></p>' +
+      '<p class="card__description" id="flores' + n + '_Fill"><b>Flores: </b></p>' +
       '</div>' +
       '</div>' +
       '</div>' +
@@ -60,19 +70,218 @@ function showData(data) {
     for (m = 0; m < data[n].estado.length; m++) {
       document.getElementById('estado' + n + '_Fill').innerHTML += '<span class="dot">' + data[n].estado[m] + '</span>'
     }
+    for (m = 0; m < data[n].habito.length; m++) {
+      document.getElementById('habito' + n + '_Fill').innerHTML += '<span class="">' + data[n].habito[m] + '; </span>'
+    }
+    for (m = 0; m < data[n].peciolos.length; m++) {
+      document.getElementById('peciolos' + n + '_Fill').innerHTML += '<span class="">' + data[n].peciolos[m] + '; </span>'
+    }
+    for (m = 0; m < data[n].flores.length; m++) {
+      document.getElementById('flores' + n + '_Fill').innerHTML += '<span class="">' + data[n].flores[m] + '; </span>'
+    }
   }
+}
+
+//Acumula los resultados
+function tbFilter(data) {
+  counter++;
+  tbFiltered = [];
+  for (j = 0; j < temp.length; j++) {
+    tbFiltered.push(data[j]);
+  }
+  data_Filtered = deduplicate(tbFiltered);
 }
 
 //Filtra los datos obtenidos en base a las caracteristicas seleccionadas
 function filterData() {
-    for (m = 0; m < filters.length; m++) {
-      if (query_string[filters[m]]) {        
-        for (n = 0; n < query_string[filters[m]].length; n++) {
-          console.log(query_string[filters[m]][n]);
+  for (m = 0; m < filters.length; m++) {
+    temp = null;
+    if (query_string[filters[m]]) {
+      if (filters[m] == 'estado') {
+        if (tbFiltered.length > 0) {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_Filtered.filter(x => x.estado.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        } else {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_All.filter(x => x.estado.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        }
+      }
+      if (filters[m] == 'habito') {
+        if (tbFiltered.length > 0) {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_Filtered.filter(x => x.habito.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        } else {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_All.filter(x => x.habito.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        }
+      }
+      if (filters[m] == 'corteza_Alta') {
+        if (tbFiltered.length > 0) {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            console.log('corteza_Alta')
+            temp = data_Filtered.filter(x => x.corteza_Alta.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        } else {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            console.log('corteza_Alta')
+            console.log(data_All)
+            temp = data_All.filter(x => x.corteza_Alta.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        }
+      }
+      if (filters[m] == 'corteza_Ramillas') {
+        if (tbFiltered.length > 0) {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_Filtered.filter(x => x.corteza_Ramillas.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        } else {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_All.filter(x => x.corteza_Ramillas.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        }
+      }
+      if (filters[m] == 'peciolos') {
+        if (tbFiltered.length > 0) {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_Filtered.filter(x => x.peciolos.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        } else {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_All.filter(x => x.peciolos.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        }
+      }
+      if (filters[m] == 'hojas_Enves') {
+        if (tbFiltered.length > 0) {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_Filtered.filter(x => x.hojas_Enves.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        } else {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_All.filter(x => x.hojas_Enves.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        }
+      }
+      if (filters[m] == 'flores') {
+        if (tbFiltered.length > 0) {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_Filtered.filter(x => x.flores.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        } else {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_All.filter(x => x.flores.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        }
+      }
+      if (filters[m] == 'hojas_DuracText') {
+        if (tbFiltered.length > 0) {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_Filtered.filter(x => x.hojas_DuracText.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        } else {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_All.filter(x => x.hojas_DuracText.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        }
+      }
+      if (filters[m] == 'hojas_Ancho') {
+        if (tbFiltered.length > 0) {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_Filtered.filter(x => x.hojas_Ancho.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        } else {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_All.filter(x => x.hojas_Ancho.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        }
+      }
+      if (filters[m] == 'hojas_Margen') {
+        if (tbFiltered.length > 0) {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_Filtered.filter(x => x.hojas_Margen.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        } else {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_All.filter(x => x.hojas_Margen.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        }
+      }
+      if (filters[m] == 'hojas_Enves') {
+        if (tbFiltered.length > 0) {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_Filtered.filter(x => x.hojas_Enves.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        } else {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_All.filter(x => x.hojas_Enves.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        }
+      }
+      if (filters[m] == 'inflorecencia') {
+        if (tbFiltered.length > 0) {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_Filtered.filter(x => x.inflorecencia.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
+        } else {
+          for (n = 0; n < query_string[filters[m]].length; n++) {
+            temp = data_All.filter(x => x.inflorecencia.includes(query_string[filters[m]][n]));
+            tbFilter(temp);
+          }
         }
       }
     }
-  //showData(filtered_Data);
+  }
+  if (tbFiltered.length == 0) {
+    if (counter > 0) {
+      document.getElementById('cards').innerHTML = '';
+      document.getElementById('resEnc').innerHTML = 'No se encontraron resultados';
+      return null;
+    } else {
+      data_Filtered = data_All;
+    }
+  }
+  showData(data_Filtered);
+}
+
+//Elimina duplicados de un array
+function deduplicate(data) {
+  if (data.length > 0) {
+    var result = [];
+    data.forEach(function (elem) {
+      if (result.indexOf(elem) === -1) {
+        result.push(elem);
+      }
+    });
+
+    return result;
+  }
 }
 
 //Verifica que opciones hay en query string y las selecciona
@@ -142,11 +351,10 @@ function getFilter(type) {
             '</label>';
         }
       }
-      console.log(filters)
       selectFilters();
     }
   ).catch(function error() {
-    alert('Fallo *getFilter()*');
+    location.href = 'error404.html'
   }));
 }
 
@@ -154,8 +362,8 @@ function getFilter(type) {
 function checkFilter() {
   var chk_All = document.querySelectorAll('.chk_All');
   var enabledSet =
-    Array.from(chk_All) 
-    .filter(i => i.checked) 
+    Array.from(chk_All)
+    .filter(i => i.checked)
     .map(i => [i.name + '=' + i.value])
   var send = '';
   for (var j = 0; j < enabledSet.length; j++) {
